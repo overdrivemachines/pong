@@ -199,6 +199,8 @@ function animate() {
   ballMove();
   ballBoundaries();
   computerAI();
+  // call animate()
+  window.requestAnimationFrame(animate);
 }
 
 // Start Game, Reset Everything
@@ -213,8 +215,9 @@ function startGame() {
   ballReset();
   createCanvas();
   animate();
+  // Call animate function 60 times a second
+  // setInterval(animate, 1000 / 60);
   canvas.addEventListener("mousemove", (e) => {
-    console.log(e.clientX);
     playerMoved = true;
     // Compensate for canvas being centered
     paddleBottomX = e.clientX - canvasPosition - paddleDiff;
@@ -230,4 +233,4 @@ function startGame() {
 }
 
 // On Load
-// startGame();
+startGame();
